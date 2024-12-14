@@ -1,0 +1,2 @@
+- deploy
+  - need to use this? https://github.com/metonym/sveltekit-gh-pages
