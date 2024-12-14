@@ -1,8 +1,10 @@
 <script>
-  import { Canvas } from '@threlte/core'
-  import Scene from './Scene.svelte'
+	import { Canvas } from '@threlte/core';
+	import { ARButton } from '@threlte/xr';
+	import Scene from './Scene.svelte';
 </script>
 
 <Canvas>
-  <Scene />
+	<Scene />
 </Canvas>
+<ARButton />

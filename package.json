@@ -13,14 +13,11 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "model-pipeline:run": "node scripts/model-pipeline.js",
-    "predeploy": "vite build",
-    "deploy": "npx gh-pages -d dist",
+    "deploy": "pnpm build && pnpx gh-pages -d build -t true",
     "upd": "ncu -u"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/kit": "^2.11.1",
-    "@sveltejs/vite-plugin-svelte": "^5.0.2",
+    "@sveltejs/adapter-static": "^3.0.6",
     "@types/eslint": "^9.6.1",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
@@ -28,17 +25,16 @@
     "globals": "^15.13.0",
     "prettier": "^3.4.2",
     "prettier-plugin-svelte": "^3.3.2",
-    "svelte": "^5.13.0",
-    "svelte-check": "^4.1.1",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.3",
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "svelte": "^4.2.7",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3",
     "vite-plugin-mkcert": "^1.17.6"
   },
   "dependencies": {
-    "@threlte/core": "^7.3.1",
-    "@threlte/extras": "^8.12.0",
-    "@threlte/flex": "^1.0.3",
-    "@threlte/xr": "^0.1.4",
     "d3": "^7.9.0",
     "fast-kde": "^0.2.2",
     "file-saver": "^2.0.5",
@@ -46,10 +42,14 @@
     "npm-check-updates": "^17.1.11",
     "pitchy": "^4.1.0",
     "soundfont-player": "^0.12.0",
-    "three": "^0.171.0",
     "tonal": "^6.3.0",
     "tone": "^15.0.4",
-    "webmidi": "^3.1.12"
+    "webmidi": "^3.1.12",
+    "three": "^0.159.0",
+    "@threlte/core": "^7.3.1",
+    "@threlte/extras": "^8.12.0",
+    "@threlte/xr": "^0.1.4",
+    "@threlte/flex": "^1.0.3"
   },
   "packageManager": "pnpm@9.15.0"
 }
