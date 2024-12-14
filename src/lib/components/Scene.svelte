@@ -3,6 +3,8 @@
 	import { T } from '@threlte/core';
 	import { XR, Hand, Controller } from '@threlte/xr';
 	import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
+	import { onMount } from 'svelte';
+	import * as d3 from 'd3';
 
 	let boxes = [];
 
@@ -29,6 +31,13 @@
 	};
 
 	const hands = ['left', 'right'];
+
+	let cubeCount = 1;
+	onMount(() => {
+		window.setInterval(() => {
+			cubeCount++;
+		}, 500);
+	});
 </script>
 
 <XR>
@@ -56,6 +65,12 @@
 	{/each}
 </XR>
 
+<!-- <XR />
+<Controller left />
+<Controller right />
+<Hand left />
+<Hand right /> -->
+
 <T.Mesh rotation={[-Math.PI / 2, 0, 0]}>
 	<T.CircleGeometry args={[1]} />
 	<T.MeshBasicMaterial />
@@ -73,12 +88,6 @@
 {#each boxes as box (box.uuid)}
 	<T is={box} />
 {/each}
-
-<XR />
-<Controller left />
-<Controller right />
-<Hand left />
-<Hand right />
 
 <T.PerspectiveCamera makeDefault position={[-10, 10, 10]} fov={15}>
 	<OrbitControls enableZoom={true} enableDamping target.y={1.5} />
@@ -98,7 +107,7 @@
 
 <ContactShadows scale={10} blur={2} far={2.5} opacity={0.5} />
 
-{#each [1, 2, 3] as d}
+{#each d3.range(cubeCount) as d}
 	<T.Mesh position.y={1.2} position.z={-2 * d}>
 		<T.BoxGeometry />
 		<T.MeshStandardMaterial color="#0059BA" />
